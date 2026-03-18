@@ -1,12 +1,63 @@
-This repository contains all the requirements and code , required for a Chat Assistant , which was trained on ECE department data , in 
-Rajiv Gandhi University of knowledge technologies , RK Valley in Andhra Pradesh
-requirements.txt file has all the requirements with versions that are needed to run the chat application in a local machine 
-The main file is ece_bot.py , which contains the Entire code regarding the chat bot 
-demo.py file also has a code , it can genrate the responses in terminal only , we did not used any api interface in that file 
-rag_application_on_ece is .ipynb file , which is ran in  a jupyter notebook , it contains the clear rag pipleine and also how the data was scrapped 
-.streamlit folder as config.toml file , which is responsible setting themes in  a streamlit interface
+# ECE Dept Chatbot
 
+A Retrieval-Augmented Generation (RAG) based chatbot designed specifically for the Electronics and Communication Engineering (ECE) department at RGUKT RK Valley. The chatbot answers queries based on the provided context from ECE-related documents.
 
-i got some of the data from official rgukt ece website using the webscrapping and some data from the ece syllabus pdf(i included in pics&files folder in repo)
-i used chatgroq model(llama 3.3) as llm and i used FIASS model for embedding and vector store
+## 📋 Features
 
+- **🎯 Context-Aware Responses**: Answers questions strictly from the provided ECE document context
+- **🤖 Powered by LLM**: Uses Groq's Llama 3.3-70b for generating accurate responses
+- **🔍 Vector Search**: Employs FAISS for efficient similarity search
+- **💬 Chat Interface**: Clean and intuitive chat UI with user/bot avatars
+- **📥 Download History**: Export chat conversations as PDF
+- **🔄 Session Management**: Persistent chat history during the session
+
+## 🛠️ Technology Stack
+
+| Component | Technology |
+|-----------|------------|
+| Frontend | Streamlit |
+| LLM | Groq (Llama 3.3-70b) |
+| Embeddings | Cohere (embed-english-v3.0) |
+| Vector Store | FAISS |
+| Framework | LangChain |
+| PDF Generation | fpdf |
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.11+
+- Cohere API Key
+- Groq API Key
+
+### Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/acharan-tech-200037/ece_rgukt_rkv_chatbot_using_rag.git
+cd ece_rgukt_rkv_chatbot_using_rag
+Create a virtual environment
+
+bash
+python -m venv myenv
+source myenv/bin/activate  # On Windows: myenv\Scripts\activate
+Install dependencies
+
+bash
+pip install -r requirements.txt
+Set up environment variables
+
+Create a .env file in the root directory:
+
+env
+COHERE_API_KEY=your_cohere_api_key_here
+GROQ_API_KEY=your_groq_api_key_here
+Prepare the vector database
+
+Ensure you have your ECE documents processed and FAISS index ready in the faiss_index/ folder.
+
+Run the application
+
+bash
+streamlit run ece_bot.py
